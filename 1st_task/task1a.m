@@ -1,17 +1,17 @@
 x = 1:10;
 
-%среднее геометрическое
+%Г±Г°ГҐГ¤Г­ГҐГҐ ГЈГҐГ®Г¬ГҐГІГ°ГЁГ·ГҐГ±ГЄГ®ГҐ
 geom = nthroot(prod(x), 10);
 disp('Geometric mean')
 disp(geom);
 
-%среднее гармоническое 
+%Г±Г°ГҐГ¤Г­ГҐГҐ ГЈГ Г°Г¬Г®Г­ГЁГ·ГҐГ±ГЄГ®ГҐ 
 y = ones(1, 10);
 x1 = y./x;
 harm = 10 ./ sum(x1);
 disp('Harmonic mean')
 disp(harm);
 
-%медиана
+%Г¬ГҐГ¤ГЁГ Г­Г 
 disp('Median')
 disp(median(x));
