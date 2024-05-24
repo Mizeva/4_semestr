@@ -1,12 +1,8 @@
-function [F] = KP_Z_func(k,E)
-    %U0 и E в эВ
+function F = KP_Z_func(k, E)
+    global a b U0 hbar m
     
-    global a;
-    global b;
-    global U0;
-    mu = sqrt((2 .* 9.1 .* 1e-31 ./ ((1.05 .* 1e-34) .^ 2))) .* sqrt(E);
-    lam = sqrt((2 .* 9.1 .* 1e-31 ./ ((1.05 .* 1e-34) .^ 2))) .* sqrt(E - U0);
+    mu = 2 * m * E / hbar^2;
+    lam = 2 * m * (E - U0) / hbar^2;
     
-    F = cos(k .* (a + b)) - ((cos(mu .* a) .* cos(lam .* b)) - ((mu .^ 2 + lam .^ 2) / (2 .* mu .* lam)) .* sin(lam .* b) .* sin(mu .* a));
+    F = cos(k * (a + b)) - (cos(mu * a) * cos(lam * b) + (mu^2 + lam^2) / (2 * mu * lam) * sin(lam * b) * sin(mu * a));
 end
-
